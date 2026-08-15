@@ -1,8 +1,13 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
-  allowedDevOrigins: ["192.168.254.4"],
+  allowedDevOrigins: [
+    "localhost",
+    "192.168.1.89"
+  ],
+  turbopack: {
+    root: ".",
+  }
 };
-
 export default nextConfig;

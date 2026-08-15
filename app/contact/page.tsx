@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import { ContactForm } from '@/components/ContactForm'
 import { Mail, MapPin, Phone, Clock, CheckCircle2 } from 'lucide-react'
+import { CalendlyWidget } from '@/components/CalendlyWidget'
+
+
+
 
 export const metadata: Metadata = {
   title: 'Contact | Pahadi',
@@ -49,7 +53,7 @@ export default function ContactPage() {
             Let&apos;s build a <span className="text-gradient">professional website</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Share your goals, timeline, and the kind of result you want. I&apos;ll reply with a clear next step and the right way to move forward.
+            Share your goals, timeline, and the kind of result you want. We&apos;ll reply with a clear next step and the right way to move forward.
           </p>
         </div>
 
@@ -85,12 +89,13 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="glass-card p-8 rounded-3xl border border-white/10 bg-primary/5">
-              <h3 className="text-xl font-bold mb-4">What to include in your message</h3>
-              <ul className="space-y-3 text-sm text-muted-foreground">
+            <div className="glass-card p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-primary/10 to-transparent relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2 transition-transform duration-700 group-hover:scale-150"></div>
+              <h3 className="text-xl font-bold mb-4 relative z-10">What to include in your message</h3>
+              <ul className="space-y-3 text-sm text-slate-300 relative z-10">
                 {expectations.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="mt-0.5 text-primary shrink-0" />
+                    <CheckCircle2 size={18} className="mt-0.5 text-accent shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -109,17 +114,16 @@ export default function ContactPage() {
               <ContactForm />
             </section>
 
-            <section id="booking" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 bg-white/5">
-              <div className="mb-8 max-w-2xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Schedule a discovery call</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  If you already know the project is a fit, book a short call to discuss scope, priorities, and timeline.
-                </p>
-              </div>
-              <div className="rounded-3xl overflow-hidden border border-white/10 bg-black/20 h-150">
-               
-              </div>
-            </section>
+          <section id="booking" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10">
+  <div className="mb-8">
+    <h2 className="text-3xl md:text-4xl font-bold mb-4">Schedule a discovery call</h2>
+    <p className="text-muted-foreground leading-relaxed mb-6">
+      If you already know the project is a fit, click the button below to book a short call to discuss scope, priorities, and timeline.
+    </p>
+    
+    <CalendlyWidget />
+  </div>
+</section>
           </div>
         </div>
       </div>

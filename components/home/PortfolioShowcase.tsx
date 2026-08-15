@@ -26,7 +26,7 @@ export function PortfolioShowcase() {
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Featured Work</h2>
             <p className="text-primary/70 text-lg">
-              Explore some of my recent projects demonstrating my expertise in building modern web applications.
+              Explore some of our recent projects demonstrating our expertise in building modern web applications.
             </p>
           </div>
           <Link href="/portfolio" className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-medium transition-colors">

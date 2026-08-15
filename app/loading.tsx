@@ -9,9 +9,9 @@ export default function Loading() {
           <Image
             src="/paha.jpg"
             alt="Pahadi"
-            width={96}
-            height={96}
-            className="relative h-24 w-24 rounded-[1.75rem] object-cover shadow-2xl"
+            width={100}
+            height={100}
+            className="relative rounded-[1.75rem] object-cover shadow-2xl"
             priority
           />
         </div>

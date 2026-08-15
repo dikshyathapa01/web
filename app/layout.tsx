@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/paha.jpg",
-        width: 512,
-        height: 512,
+        width: 800,
+        height: 800,
         alt: "Pahadi icon",
       },
     ],

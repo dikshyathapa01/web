@@ -25,7 +25,7 @@ export function WhyChooseMe() {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Why Choose Me?</h2>
             <p className="text-primary/70 mb-8 text-lg leading-relaxed">
-              I don't just build websites; I build digital experiences that drive growth. With a focus on modern aesthetics, performance, and user experience, I ensure your business stands out in a crowded digital landscape.
+              We don&apos;t just build websites; We build digital experiences that drive growth. With a focus on modern aesthetics, performance, and user experience, We ensure your business stands out in a crowded digital landscape.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

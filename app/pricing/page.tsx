@@ -12,7 +12,7 @@ const pricingPlans = [
   {
     name: "Starter",
     description: "Perfect for small businesses establishing their online presence.",
-    price: "Rs 3000",
+    price: "Rs 12,000",
     popular: false,
     features: [
       { name: "Up to 5 Pages", included: true },
@@ -27,7 +27,7 @@ const pricingPlans = [
   {
     name: "Professional",
     description: "Ideal for growing businesses needing dynamic content and better conversion.",
-    price: "$1,999",
+    price: "Rs 20,000",
     popular: true,
     features: [
       { name: "Up to 15 Pages", included: true },

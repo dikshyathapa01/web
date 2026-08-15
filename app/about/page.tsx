@@ -18,7 +18,7 @@ export default function AboutPage() {
                 Hi, We are passionate <span className="text-gradient">Web Developer</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                We specialize in building premium, high-performance web applications and websites. With a deep understanding of modern web technologies, I bridge the gap between aesthetic design and robust engineering.
+                We specialize in building premium, high-performance web applications and websites. With a deep understanding of modern web technologies, We bridge the gap between aesthetic design and robust engineering.
               </p>
               <div className="flex gap-4">
                 <div className="glass px-6 py-4 rounded-xl border border-white/10 text-center flex-1">
@@ -37,7 +37,7 @@ export default function AboutPage() {
                 {/* Placeholder for avatar/photo */}
                 <div className="w-full h-full rounded-full bg-white/5 border border-white/10 flex items-center justify-center relative overflow-hidden">
                   <div className="absolute inset-0 bg-linear-to-t from-primary/40 to-transparent"></div>
-                  <span className="text-muted-foreground font-medium">Your Photo Here</span>
+                  <span className="text-muted-foreground font-medium">photo here</span>
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@ export default function AboutPage() {
         </div>
         
         {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-primary/10 rounded-full blur-[120px] -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
       </section>
 
       <section className="py-24 bg-black/20 border-y border-white/5">
@@ -95,9 +95,9 @@ export default function AboutPage() {
   ].map((skill, index) => (
     <div
       key={index}
-      className="glass-card p-6 rounded-2xl flex flex-col items-center text-center"
+      className="glass-card p-6 rounded-2xl flex flex-col items-center text-center group hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(59,130,246,0.12)] cursor-default"
     >
-      <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
+      <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/20">
         {skill.icon}
       </div>
 
@@ -124,12 +124,12 @@ export default function AboutPage() {
               { step: "04", title: "Testing & Launch", desc: "Rigorous quality assurance, SEO optimization, and performance testing before a smooth deployment to production." }
             ].map((process, index) => (
               <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-black text-primary font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-[0_0_0_4px_rgba(0,0,0,1)] relative z-10">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-primary/30 bg-[#08121f] text-accent font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-[0_0_0_4px_rgba(8,18,31,1)] relative z-10 transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/10">
                   {process.step}
                 </div>
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] glass-card p-6 rounded-2xl">
-                  <h3 className="font-bold text-xl mb-2">{process.title}</h3>
-                  <p className="text-muted-foreground">{process.desc}</p>
+                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] glass-card p-6 md:p-8 rounded-3xl group-hover:border-white/10 transition-colors duration-300">
+                  <h3 className="font-bold text-xl mb-3 text-slate-100">{process.title}</h3>
+                  <p className="text-slate-400 leading-relaxed">{process.desc}</p>
                 </div>
               </div>
             ))}

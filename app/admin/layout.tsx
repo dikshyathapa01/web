@@ -13,7 +13,7 @@ export default async function AdminLayout({
       {/* Sidebar */}
       <aside className="w-64 border-r border-white/10 glass p-6 hidden md:flex flex-col">
         <Link href="/admin" className="mb-12 inline-flex items-center gap-3">
-          <Image src="/paha.jpg" alt="Pahadi" width={40} height={40} className="h-10 w-10 rounded-2xl object-cover" priority />
+          <Image src="/paha.jpg" alt="Pahadi" width={40} height={40} className=" rounded-2xl object-cover" priority />
           <div className="font-bold text-2xl text-gradient">Admin</div>
         </Link>
         

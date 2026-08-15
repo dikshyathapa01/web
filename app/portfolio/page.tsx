@@ -4,7 +4,7 @@ import { ContactCTA } from '@/components/home/ContactCTA'
 
 export const metadata: Metadata = {
   title: 'Portfolio | Freelance Web Development Agency',
-  description: 'View my recent web development projects, case studies, and client success stories.',
+  description: 'View our recent web development projects, case studies, and client success stories.',
 }
 
 const portfolioProjects = [
@@ -53,24 +53,24 @@ export default function PortfolioPage() {
             Featured <span className="text-gradient">Projects</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A selection of my recent work. Explore how we&apos;ve helped businesses achieve their digital goals through innovative web solutions.
+            A selection of our recent work. Explore how we&apos;ve helped businesses achieve their digital goals through innovative web solutions.
           </p>
         </div>
         
         {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/20 rounded-full blur-[100px] -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
       </section>
 
       <section className="py-16 bg-black/20 border-y border-white/5">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {portfolioProjects.map((project, index) => (
-              <div key={index} className="glass-card rounded-3xl overflow-hidden group">
+              <div key={index} className="glass-card rounded-3xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(59,130,246,0.15)] transition-all duration-500 flex flex-col">
                 <div 
-                  className="aspect-video w-full relative border-b border-white/10 overflow-hidden"
+                  className="aspect-video w-full relative border-b border-white/5 overflow-hidden"
                 >
                   <div 
-                    className="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+                    className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
                     style={{ background: project.image }}
                   ></div>
                 </div>
@@ -82,22 +82,22 @@ export default function PortfolioPage() {
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2 mb-8 h-14">
+                  <div className="flex flex-wrap gap-2 mb-8 mt-auto">
                     {project.tech.map((t, i) => (
-                      <span key={i} className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground whitespace-nowrap">
+                      <span key={i} className="text-xs px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary whitespace-nowrap">
                         {t}
                       </span>
                     ))}
                   </div>
                   
-                  <div className="flex items-center gap-4 pt-6 border-t border-white/10">
+                  <div className="flex items-center gap-4 pt-6 border-t border-white/5">
                     {project.liveUrl && (
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors">
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-accent transition-colors duration-300">
                         <ExternalLink size={16} /> Live Demo
                       </a>
                     )}
                     {project.githubUrl && (
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors">
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-primary transition-colors duration-300">
                         <Code2 size={16} /> Source Code
                       </a>
                     )}
