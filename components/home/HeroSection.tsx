@@ -49,9 +49,6 @@ export function HeroSection() {
             <Link href="/contact" className="w-full sm:w-auto px-8 py-3 bg-accent hover:bg-accent/90 text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 shadow-md shadow-accent/20">
               Get Started <ArrowRight size={18} />
             </Link>
-            <Link href="/portfolio" className="w-full sm:w-auto px-8 py-3 bg-secondary hover:bg-secondary/80 text-foreground rounded-lg font-semibold transition-all flex items-center justify-center shadow-sm">
-              View Portfolio
-            </Link>
           </motion.div>
         </div>
 

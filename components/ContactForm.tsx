@@ -5,6 +5,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { Send, CheckCircle2 } from 'lucide-react'
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xdenleko'
+
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Valid email is required"),
@@ -16,16 +18,41 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>
 
 export function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [submitError, setSubmitError] = useState('')
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(formSchema)
   })
 
-  const onSubmit = async () => {
+  const onSubmit = async (data: FormData) => {
     setStatus('submitting')
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    setStatus('success')
+    setSubmitError('')
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          projectType: data.projectType,
+          budget: data.budget || 'Not specified',
+          message: data.description,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Unable to send your message right now.')
+      }
+
+      setStatus('success')
+    } catch (error) {
+      setStatus('error')
+      setSubmitError(error instanceof Error ? error.message : 'Something went wrong. Please try again.')
+    }
   }
 
   if (status === 'success') {
@@ -51,29 +78,35 @@ export function ContactForm() {
           <select {...register('projectType')} className={inputClasses}>
             <option value="" className="bg-[#0b1220]">Select a service *</option>
             <option value="web" className="bg-[#0b1220]">Web Development</option>
-            <option value="saas" className="bg-[#0b1220]">SaaS Application</option>
+            <option value="saas" className="bg-[#0b1220]"></option>
           </select>
           <select {...register('budget')} className={inputClasses}>
             <option value="" className="bg-[#0b1220]">Select a budget</option>
-            <option value="1k-3k" className="bg-[#0b1220]">1,000 - 3,000</option>
+            <option value="10,000" className="bg-[#0b1220]">10,000 </option>
+            <option value="20,000" className="bg-[#0b1220]">20,000</option>
+            <option value="30,000" className="bg-[#0b1220]">30,000</option>
           </select>
         </div>
 
         <textarea {...register('description')} rows={5} placeholder="Project Details *" className={inputClasses + " resize-none"} />
 
-       <button 
-  type="submit" 
-  className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all shadow-[0_4px_14px_rgba(59,130,246,0.3)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.4)] hover:-translate-y-0.5"
->
-  {status === 'submitting' ? (
-    'Sending...'
-  ) : (
-    <>
-      Send Message
-      <Send size={18} />
-    </>
-  )}
-</button>
+        {submitError && (
+          <p className="text-sm text-red-400">{submitError}</p>
+        )}
+
+        <button
+          type="submit"
+          className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all shadow-[0_4px_14px_rgba(59,130,246,0.3)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.4)] hover:-translate-y-0.5"
+        >
+          {status === 'submitting' ? (
+            'Sending...'
+          ) : (
+            <>
+              Send Message
+              <Send size={18} />
+            </>
+          )}
+        </button>
       </form>
     </div>
   )

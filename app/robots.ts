@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/admin/', '/api/'],
+      disallow: [],
     },
-    sitemap: 'https://pahadi.com/sitemap.xml', // Replace with your actual domain
+    sitemap: 'https://pahadi.com/sitemap.xml',
   }
 }

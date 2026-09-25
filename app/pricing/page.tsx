@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 const pricingPlans = [
   {
-    name: "Starter",
+    name: "Starting",
+    price: "Rs.15,000",
     description: "Perfect for small businesses establishing their online presence.",
-    price: "Rs 12,000",
     popular: false,
     features: [
       { name: "Up to 5 Pages", included: true },
@@ -25,9 +25,9 @@ const pricingPlans = [
     ]
   },
   {
-    name: "Professional",
+    name: "Basic",
+    price: "Rs.23,000",
     description: "Ideal for growing businesses needing dynamic content and better conversion.",
-    price: "Rs 20,000",
     popular: true,
     features: [
       { name: "Up to 15 Pages", included: true },
@@ -37,6 +37,21 @@ const pricingPlans = [
       { name: "CMS Integration (Sanity/Contentful)", included: true },
       { name: "eCommerce Functionality", included: false },
       { name: "Custom API Integration", included: false },
+    ]
+  },
+  {
+    name: "Premium",
+    price: "Rs.30,000",
+    description: "A complete digital solution for businesses ready to scale confidently.",
+    popular: false,
+    features: [
+      { name: "Up to 25 Pages", included: true },
+      { name: "Mobile Responsive Design", included: true },
+      { name: "Advanced Forms & Lead Capture", included: true },
+      { name: "Advanced SEO & Schema", included: true },
+      { name: "CMS Integration (Sanity/Contentful)", included: true },
+      { name: "eCommerce Functionality", included: true },
+      { name: "Custom API Integration", included: true },
     ]
   }
 ]
@@ -116,7 +131,7 @@ export default function PricingPage() {
           <div className="space-y-6">
             {[
               { q: "How long does it take to build a website?", a: "A standard 5-page business website typically takes 2-3 weeks. More complex eCommerce or SaaS applications can take 6-12 weeks depending on the scope of requirements." },
-              { q: "Do you provide hosting and maintenance?", a: "Yes! I offer ongoing maintenance and premium hosting packages starting at $99/month to ensure your website remains secure, fast, and up-to-date." },
+              { q: "Do you provide hosting and maintenance?", a: "Yes! I offer ongoing maintenance and premium hosting packages starting at RS. 30,000 to ensure your website remains secure, fast, and up-to-date." },
               { q: "What is your payment structure?", a: "I typically request a 50% deposit upfront to secure the project slot, with the remaining 50% due upon project completion and before final launch." },
               { q: "Will I be able to update the website myself?", a: "Absolutely. For the Professional and Premium packages, I integrate user-friendly Content Management Systems (CMS) like Sanity or Contentful so you can easily edit text and images without touching code." }
             ].map((faq, i) => (

@@ -1,7 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Globe, ShoppingCart, LayoutTemplate, Search, Shield, Cpu } from 'lucide-react'
-import Link from 'next/link'
+import { Globe, ShoppingCart, LayoutTemplate, Search, Shield, Cpu, Palette } from 'lucide-react'
 
 const services = [
   {
@@ -12,7 +11,7 @@ const services = [
   {
     icon: <ShoppingCart className="w-8 h-8" />,
     title: "eCommerce Stores",
-    description: "High-converting online stores built with Next.js, Stripe, and modern CMS platforms."
+    description: "High-converting online stores built with Next.js, Khalti, and modern CMS platforms."
   },
   {
     icon: <Cpu className="w-8 h-8" />,
@@ -23,6 +22,11 @@ const services = [
     icon: <LayoutTemplate className="w-8 h-8" />,
     title: "Landing Pages",
     description: "Laser-focused, fast-loading landing pages designed to maximize conversion rates."
+  },
+  {
+    icon: <Palette className="w-8 h-8" />,
+    title: "Graphic Design",
+    description: "Distinctive visual assets and brand designs that make your business stand out."
   },
   {
     icon: <Search className="w-8 h-8" />,
@@ -69,9 +73,6 @@ export function ServicesSection() {
               <p className="text-slate-400 mb-6 leading-relaxed flex-1">
                 {service.description}
               </p>
-              <Link href="/services" className="text-primary font-medium inline-flex items-center gap-2 hover:gap-3 hover:text-accent transition-all duration-300 mt-auto">
-                Learn more <span>→</span>
-              </Link>
             </motion.div>
           ))}
         </div>

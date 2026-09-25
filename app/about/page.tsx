@@ -22,25 +22,16 @@ export default function AboutPage() {
               </p>
               <div className="flex gap-4">
                 <div className="glass px-6 py-4 rounded-xl border border-white/10 text-center flex-1">
-                  <div className="text-3xl font-bold text-primary mb-1">5+</div>
+                  <div className="text-3xl font-bold text-primary mb-1">2+</div>
                   <div className="text-sm text-muted-foreground">Years Exp.</div>
                 </div>
                 <div className="glass px-6 py-4 rounded-xl border border-white/10 text-center flex-1">
-                  <div className="text-3xl font-bold text-primary mb-1">150+</div>
+                  <div className="text-3xl font-bold text-primary mb-1">40+</div>
                   <div className="text-sm text-muted-foreground">Projects</div>
                 </div>
               </div>
             </div>
             
-            <div className="flex-1 w-full max-w-md relative">
-              <div className="aspect-square rounded-full glass-card border border-white/10 overflow-hidden relative p-4 bg-linear-to-br from-indigo-500/20 to-purple-500/20 shadow-2xl">
-                {/* Placeholder for avatar/photo */}
-                <div className="w-full h-full rounded-full bg-white/5 border border-white/10 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-linear-to-t from-primary/40 to-transparent"></div>
-                  <span className="text-muted-foreground font-medium">photo here</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         

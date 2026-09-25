@@ -12,7 +12,6 @@ export default function Loading() {
             width={100}
             height={100}
             className="relative rounded-[1.75rem] object-cover shadow-2xl"
-            priority
           />
         </div>
         <div>

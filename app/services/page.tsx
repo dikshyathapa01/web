@@ -13,15 +13,22 @@ const detailedServices = [
     title: "Business Websites",
     description: "We build professional, modern websites that serve as your 24/7 digital storefront. Designed to establish trust, generate leads, and showcase your brand in the best possible light.",
     features: ["Responsive Design", "SEO Optimized", "CMS Integration", "Contact Forms", "Analytics Setup"],
-    price: "From Rs.10,000",
+    price: "Rs.15,000",
     delay: 0.1
   },
   {
     title: "eCommerce Stores",
     description: "High-performance online stores built to maximize conversions. I integrate secure payment gateways, inventory management, and intuitive shopping experiences.",
     features: ["E-sewa Integration", "Product Management", "Shopping Cart", "Order Tracking", "Customer Accounts"],
-    price: "From Rs.30,000",
+    price: "Rs.30,000",
     delay: 0.2
+  },
+  {
+    title: "Graphic Design",
+    description: "Cohesive visual designs that help your brand communicate clearly and make a memorable impression across digital platforms.",
+    features: ["Logo Design", "Brand Identity", "Social Media Graphics", "Marketing Materials", "Print-Ready Assets"],
+    price: "Rs.23,000",
+    delay: 0.3
   },
   
 ]
@@ -67,7 +74,6 @@ export default function ServicesPage() {
                       {service.description}
                     </p>
                     <div className="mb-8">
-                      <div className="text-sm font-medium text-accent mb-1 uppercase tracking-wider">Starting at</div>
                       <div className="text-4xl font-bold">{service.price}</div>
                     </div>
                   </div>

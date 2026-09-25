@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="mb-4 inline-flex items-center">
-              <Image src="/pahadi.png" alt="Pahadi" width={180} height={54} className=" w-auto" priority />
+              <Image src="/pahadi.png" alt="Pahadi" width={180} height={54} className=" w-auto" loading="eager" />
             </Link>
             <p className="text-muted-foreground max-w-sm mt-4">
               Clean, modern websites for brands that want a stronger first impression and more inquiries.
@@ -19,7 +19,6 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/services" className="hover:text-primary transition-colors duration-300">Services</Link></li>
-              <li><Link href="/portfolio" className="hover:text-primary transition-colors duration-300">Portfolio</Link></li>
               <li><Link href="/pricing" className="hover:text-primary transition-colors duration-300">Pricing</Link></li>
               <li><Link href="/about" className="hover:text-primary transition-colors duration-300">About</Link></li>
             </ul>

@@ -11,12 +11,12 @@ export function Navbar() {
     <header className="fixed top-0 w-full z-50 bg-[#08121f]/70 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <Image src="/pahadi.png" alt="Pahadi" width={160} height={48} className="w-auto" />
+          <Image src="/pahadi.png" alt="Pahadi" width={160} height={48} className="w-auto" loading="eager" />
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-6 text-sm font-medium text-muted-foreground">
-          {['Services', 'Portfolio', 'Pricing', 'About', 'Contact'].map((item) => (
+          {['Services', 'Pricing', 'About', 'Contact'].map((item) => (
             <Link key={item} href={`/${item.toLowerCase()}`} className="hover:text-primary transition-colors duration-300">
               {item}
             </Link>
@@ -32,7 +32,7 @@ export function Navbar() {
       {/* Mobile Nav Drawer */}
       {isOpen && (
         <div className="md:hidden absolute w-full bg-[#08121f]/95 backdrop-blur-xl border-b border-white/10 p-4 flex flex-col gap-4">
-          {['Services', 'Portfolio', 'Pricing', 'About', 'Contact'].map((item) => (
+          {['Services', 'Pricing', 'About', 'Contact'].map((item) => (
             <Link 
               key={item} 
               href={`/${item.toLowerCase()}`} 
