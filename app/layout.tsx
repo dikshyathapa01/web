@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { StickyCTA } from "@/components/StickyCTA";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pahadi.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pahaditech.com";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });

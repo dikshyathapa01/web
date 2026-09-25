@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next'
 
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://pahadi.com' // Replace with your actual domain
+  const baseUrl = 'https://pahaditech.com'
 
   return [
     {
