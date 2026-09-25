@@ -8,8 +8,8 @@ import { Send, CheckCircle2 } from 'lucide-react'
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xdenleko'
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Valid email is required"),
+  name: z.string().min(2, "Please enter your name"),
+  email: z.string().email("Please enter a valid email address"),
   projectType: z.string().min(1, "Please select a service"),
   budget: z.string().optional(),
   description: z.string().min(5, "Please enter at least 5 characters")
@@ -67,6 +67,7 @@ export function ContactForm() {
   }
 
   const inputClasses = "w-full bg-[#08121f]/50 border border-white/10 rounded-xl px-4 py-3.5 text-slate-200 [color-scheme:dark] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-slate-500"
+  const fieldClasses = (hasError: boolean) => `${inputClasses} ${hasError ? 'border-red-400 focus:ring-red-400' : ''}`
   const errorClasses = "mt-1 text-sm text-red-400"
 
   return (
@@ -74,24 +75,24 @@ export function ContactForm() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <input {...register('name')} placeholder="Full Name *" className={inputClasses} aria-invalid={Boolean(errors.name)} />
-            {errors.name && <p className={errorClasses}>{errors.name.message}</p>}
+            <input {...register('name')} placeholder="Full Name *" className={fieldClasses(Boolean(errors.name))} aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? 'name-error' : undefined} />
+            {errors.name && <p id="name-error" className={errorClasses} role="alert">{errors.name.message}</p>}
           </div>
           <div>
-            <input {...register('email')} placeholder="Email Address *" className={inputClasses} aria-invalid={Boolean(errors.email)} />
-            {errors.email && <p className={errorClasses}>{errors.email.message}</p>}
+            <input {...register('email')} type="email" inputMode="email" placeholder="Email Address *" className={fieldClasses(Boolean(errors.email))} aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? 'email-error' : undefined} />
+            {errors.email && <p id="email-error" className={errorClasses} role="alert">{errors.email.message}</p>}
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <select {...register('projectType')} className={inputClasses} aria-invalid={Boolean(errors.projectType)}>
+            <select {...register('projectType')} className={fieldClasses(Boolean(errors.projectType))} aria-invalid={Boolean(errors.projectType)} aria-describedby={errors.projectType ? 'project-type-error' : undefined}>
               <option value="" className="bg-[#0b1220]">Select a service *</option>
               <option value="web" className="bg-[#0b1220]">Web Development</option>
               <option value="graphics" className="bg-[#0b1220]">Graphics Design</option>
-                <option value="app" className="bg-[#0b1220]">App Development</option>
+              <option value="app" className="bg-[#0b1220]">App Development</option>
             </select>
-            {errors.projectType && <p className={errorClasses}>{errors.projectType.message}</p>}
+            {errors.projectType && <p id="project-type-error" className={errorClasses} role="alert">{errors.projectType.message}</p>}
           </div>
           <select {...register('budget')} className={inputClasses}>
             <option value="" className="bg-[#0b1220]">Select a budget</option>
@@ -102,8 +103,8 @@ export function ContactForm() {
         </div>
 
         <div>
-          <textarea {...register('description')} rows={5} placeholder="Project Details *" className={inputClasses + " resize-none"} aria-invalid={Boolean(errors.description)} />
-          {errors.description && <p className={errorClasses}>{errors.description.message}</p>}
+          <textarea {...register('description')} rows={5} placeholder="Project Details *" className={`${fieldClasses(Boolean(errors.description))} resize-none`} aria-invalid={Boolean(errors.description)} aria-describedby={errors.description ? 'description-error' : undefined} />
+          {errors.description && <p id="description-error" className={errorClasses} role="alert">{errors.description.message}</p>}
         </div>
 
         {submitError && (
