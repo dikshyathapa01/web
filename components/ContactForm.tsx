@@ -65,21 +65,32 @@ export function ContactForm() {
   }
 
   const inputClasses = "w-full bg-[#08121f]/50 border border-white/10 rounded-xl px-4 py-3.5 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-slate-500"
+  const errorClasses = "mt-1 text-sm text-red-400"
 
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <input {...register('name')} placeholder="Full Name *" className={inputClasses} />
-          <input {...register('email')} placeholder="Email Address *" className={inputClasses} />
+          <div>
+            <input {...register('name')} placeholder="Full Name *" className={inputClasses} aria-invalid={Boolean(errors.name)} />
+            {errors.name && <p className={errorClasses}>{errors.name.message}</p>}
+          </div>
+          <div>
+            <input {...register('email')} placeholder="Email Address *" className={inputClasses} aria-invalid={Boolean(errors.email)} />
+            {errors.email && <p className={errorClasses}>{errors.email.message}</p>}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <select {...register('projectType')} className={inputClasses}>
-            <option value="" className="bg-[#0b1220]">Select a service *</option>
-            <option value="web" className="bg-[#0b1220]">Web Development</option>
-            <option value="saas" className="bg-[#0b1220]"></option>
-          </select>
+          <div>
+            <select {...register('projectType')} className={inputClasses} aria-invalid={Boolean(errors.projectType)}>
+              <option value="" className="bg-[#0b1220]">Select a service *</option>
+              <option value="web" className="bg-[#0b1220]">Web Development</option>
+              <option value="web" className="bg-[#0b1220]">Graphics Design</option>
+              <option value="saas" className="bg-[#0b1220]">SaaS Application</option>
+            </select>
+            {errors.projectType && <p className={errorClasses}>{errors.projectType.message}</p>}
+          </div>
           <select {...register('budget')} className={inputClasses}>
             <option value="" className="bg-[#0b1220]">Select a budget</option>
             <option value="10,000" className="bg-[#0b1220]">10,000 </option>
@@ -88,7 +99,10 @@ export function ContactForm() {
           </select>
         </div>
 
-        <textarea {...register('description')} rows={5} placeholder="Project Details *" className={inputClasses + " resize-none"} />
+        <div>
+          <textarea {...register('description')} rows={5} placeholder="Project Details *" className={inputClasses + " resize-none"} aria-invalid={Boolean(errors.description)} />
+          {errors.description && <p className={errorClasses}>{errors.description.message}</p>}
+        </div>
 
         {submitError && (
           <p className="text-sm text-red-400">{submitError}</p>
