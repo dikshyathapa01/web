@@ -64,7 +64,7 @@ export function ContactForm() {
     )
   }
 
-  const inputClasses = "w-full bg-[#08121f]/50 border border-white/10 rounded-xl px-4 py-3.5 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-slate-500"
+  const inputClasses = "w-full bg-[#08121f]/50 border border-white/10 rounded-xl px-4 py-3.5 text-slate-200 [color-scheme:dark] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-slate-500"
   const errorClasses = "mt-1 text-sm text-red-400"
 
   return (
@@ -86,8 +86,8 @@ export function ContactForm() {
             <select {...register('projectType')} className={inputClasses} aria-invalid={Boolean(errors.projectType)}>
               <option value="" className="bg-[#0b1220]">Select a service *</option>
               <option value="web" className="bg-[#0b1220]">Web Development</option>
-              <option value="web" className="bg-[#0b1220]">Graphics Design</option>
-              <option value="saas" className="bg-[#0b1220]">SaaS Application</option>
+              <option value="graphics" className="bg-[#0b1220]">Graphics Design</option>
+                <option value="app" className="bg-[#0b1220]">App Development</option>
             </select>
             {errors.projectType && <p className={errorClasses}>{errors.projectType.message}</p>}
           </div>
