@@ -12,7 +12,7 @@ const formSchema = z.object({
   email: z.string().email("Valid email is required"),
   projectType: z.string().min(1, "Please select a service"),
   budget: z.string().optional(),
-  description: z.string().min(10, "Details required")
+  description: z.string().min(5, "Please enter at least 5 characters")
 })
 
 type FormData = z.infer<typeof formSchema>
