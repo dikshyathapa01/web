@@ -29,23 +29,25 @@ export function ContactForm() {
     setSubmitError('')
 
     try {
+      const formData = new FormData()
+      formData.append('name', data.name)
+      formData.append('email', data.email)
+      formData.append('projectType', data.projectType)
+      formData.append('budget', data.budget || 'Not specified')
+      formData.append('message', data.description)
+
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          projectType: data.projectType,
-          budget: data.budget || 'Not specified',
-          message: data.description,
-        }),
+        body: formData,
       })
 
       if (!response.ok) {
-        throw new Error('Unable to send your message right now.')
+        const result = await response.json().catch(() => null)
+        const message = result?.errors?.map((error: { message?: string }) => error.message).filter(Boolean).join(' ')
+        throw new Error(message || 'Unable to send your message right now.')
       }
 
       setStatus('success')
