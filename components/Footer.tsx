@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="mb-4 inline-flex items-center">
-              <Image src="/pahadi.png" alt="Pahadi" width={180} height={54} className=" w-auto" loading="eager" />
+              <Image src="/pahadi.png" alt="Pahadi" width={180} height={54} className="h-13.5 w-45 object-cover object-center" loading="eager" />
             </Link>
             <p className="text-muted-foreground max-w-sm mt-4">
               Clean, modern websites for brands that want a stronger first impression and more inquiries.

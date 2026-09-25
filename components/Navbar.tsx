@@ -11,7 +11,7 @@ export function Navbar() {
     <header className="fixed top-0 w-full z-50 bg-[#08121f]/70 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <Image src="/pahadi.png" alt="Pahadi" width={160} height={48} className="w-auto" loading="eager" />
+          <Image src="/pahadi.png" alt="Pahadi" width={160} height={48} className="h-12 w-40 object-cover object-center" loading="eager" />
         </Link>
 
         {/* Desktop Nav */}
