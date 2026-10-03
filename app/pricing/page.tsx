@@ -103,16 +103,27 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link 
+               <Link 
+  href={`/contact?plan=${plan.name.toLowerCase()}`}
+  className={`w-full py-4 rounded-xl font-bold text-center transition-all ${
+    plan.popular 
+      ? 'bg-primary text-white hover:bg-primary/90' 
+      : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
+  }`}
+>
+  Get Started
+</Link>
+
+<Link 
                   href={`/contact?plan=${plan.name.toLowerCase()}`}
-                  className={`w-full py-4 rounded-xl font-bold text-center transition-all ${
-                    plan.popular 
-                      ? 'bg-primary text-white hover:bg-primary/90' 
-                      : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
-                  }`}
-                >
-                  Get Started
-                </Link>
+  className={`w-full py-4 rounded-xl font-bold text-center transition-all ${
+    plan.popular 
+      ? 'bg-primary text-white hover:bg-primary/90' 
+      : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
+  }`}
+>
+  Get Started
+</Link>
               </div>
             ))}
           </div>
