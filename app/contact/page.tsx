@@ -21,7 +21,7 @@ const contactDetails = [
   {
     icon: Phone,
     label: 'Phone / WhatsApp',
-    value: '+977-9849104391',
+    value: '+977-9849014391',
     href: 'tel:+977-9849104391',
   },
   {
