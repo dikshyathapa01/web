@@ -48,10 +48,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" data-scroll-behavior="smooth">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} antialiased min-h-screen flex flex-col`}
+        className={`${inter.variable} ${spaceGrotesk.variable} antialiased min-h-screen flex flex-col overflow-x-hidden`}
       >
         <Navbar />
-        <main className="flex-1 pt-16">
+        <main className="flex-1 pt-16 overflow-x-hidden">
           {children}
         </main>
         <Footer />

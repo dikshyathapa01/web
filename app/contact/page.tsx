@@ -22,7 +22,7 @@ const contactDetails = [
     icon: Phone,
     label: 'Phone / WhatsApp',
     value: '+977-9849014391',
-    href: 'tel:+977-9849104391',
+    href: 'tel:+977-9849014391',
   },
   {
     icon: MapPin,
@@ -59,29 +59,29 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-6xl mx-auto">
           <aside className="lg:col-span-4 space-y-6">
-            <div className="glass-card p-8 rounded-3xl border border-white/10">
+            <div className="glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/10">
               <h2 className="text-2xl font-bold mb-6">Contact details</h2>
               <div className="space-y-5">
                 {contactDetails.map((item) => {
                   const Icon = item.icon
                   const content = (
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-3 sm:gap-4 min-w-0">
                       <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
                         <Icon size={20} />
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <div className="text-sm text-muted-foreground mb-1">{item.label}</div>
-                        <div className="font-medium text-foreground wrap-break-word">{item.value}</div>
+                        <div className="font-medium text-foreground break-all sm:break-words">{item.value}</div>
                       </div>
                     </div>
                   )
 
                   return item.href ? (
-                    <a key={item.label} href={item.href} className="block rounded-2xl p-3 -mx-3 hover:bg-white/5 transition-colors">
+                    <a key={item.label} href={item.href} className="block rounded-2xl p-3 -mx-2 hover:bg-white/5 transition-colors">
                       {content}
                     </a>
                   ) : (
-                    <div key={item.label} className="rounded-2xl p-3 -mx-3">
+                    <div key={item.label} className="rounded-2xl p-3 -mx-2">
                       {content}
                     </div>
                   )
@@ -89,7 +89,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="glass-card p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-primary/10 to-transparent relative overflow-hidden group">
+            <div className="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/10 bg-gradient-to-br from-primary/10 to-transparent relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2 transition-transform duration-700 group-hover:scale-150"></div>
               <h3 className="text-xl font-bold mb-4 relative z-10">What to include in your message</h3>
               <ul className="space-y-3 text-sm text-slate-300 relative z-10">
@@ -104,7 +104,7 @@ export default function ContactPage() {
           </aside>
 
           <div className="lg:col-span-8 space-y-8">
-            <section id="contact-form" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10">
+            <section id="contact-form" className="glass-card p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border border-white/10">
               <div className="max-w-2xl mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Send a project brief</h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -114,7 +114,7 @@ export default function ContactPage() {
               <ContactForm />
             </section>
 
-          <section id="booking" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10">
+            <section id="booking" className="glass-card p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border border-white/10">
   <div className="mb-8">
     <h2 className="text-3xl md:text-4xl font-bold mb-4">Schedule a discovery call</h2>
     <p className="text-muted-foreground leading-relaxed mb-6">

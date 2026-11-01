@@ -23,10 +23,10 @@ export function ContactCTA() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-full font-bold transition-all flex items-center justify-center gap-2 shadow-[0_4px_14px_rgba(59,130,246,0.3)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.4)] hover:-translate-y-0.5">
+              <Link href="/contact#contact-form" className="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-full font-bold transition-all flex items-center justify-center gap-2 shadow-[0_4px_14px_rgba(59,130,246,0.3)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.4)] hover:-translate-y-0.5">
                 <Mail size={18} /> Get Free Quote
               </Link>
-              <Link href="/contact?tab=book" className="w-full sm:w-auto px-8 py-4 glass hover:bg-white/5 rounded-full font-bold transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5">
+              <Link href="/contact#booking" className="w-full sm:w-auto px-8 py-4 glass hover:bg-white/5 rounded-full font-bold transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5">
                 <Calendar size={18} /> Book a Meeting
               </Link>
             </div>

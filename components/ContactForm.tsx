@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
@@ -20,9 +20,22 @@ type FormData = z.infer<typeof formSchema>
 export function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [submitError, setSubmitError] = useState('')
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(formSchema)
   })
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search)
+      const plan = params.get('plan')
+      if (plan) {
+        setValue('projectType', 'web')
+        if (plan === 'starting') setValue('budget', 'Rs. 15,000')
+        else if (plan === 'basic') setValue('budget', 'Rs. 23,000')
+        else if (plan === 'premium') setValue('budget', 'Rs. 30,000+')
+      }
+    }
+  }, [setValue])
 
   const onSubmit = async (data: FormData) => {
     setStatus('submitting')
@@ -59,14 +72,15 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="p-8 rounded-3xl text-center border border-white/10 glass-card">
+      <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl text-center border border-white/10 glass-card">
         <CheckCircle2 className="mx-auto text-accent mb-4" size={48} />
-        <h3 className="text-2xl font-bold">Message Sent!</h3>
+        <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
+        <p className="text-muted-foreground text-sm">Thank you for reaching out. We will get back to you within 1 business day.</p>
       </div>
     )
   }
 
-  const inputClasses = "w-full bg-[#08121f]/50 border border-white/10 rounded-xl px-4 py-3.5 text-slate-200 [color-scheme:dark] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-slate-500"
+  const inputClasses = "w-full bg-[#08121f]/50 border border-white/10 rounded-xl px-4 py-3.5 text-base text-slate-200 [color-scheme:dark] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-slate-500"
   const fieldClasses = (hasError: boolean) => `${inputClasses} ${hasError ? 'border-red-400 focus:ring-red-400' : ''}`
   const errorClasses = "mt-1 text-sm text-red-400"
 
@@ -96,9 +110,9 @@ export function ContactForm() {
           </div>
           <select {...register('budget')} className={inputClasses}>
             <option value="" className="bg-[#0b1220]">Select a budget</option>
-            <option value="10,000" className="bg-[#0b1220]">10,000 </option>
-            <option value="20,000" className="bg-[#0b1220]">20,000</option>
-            <option value="30,000" className="bg-[#0b1220]">30,000</option>
+            <option value="Rs. 15,000" className="bg-[#0b1220]">Rs. 15,000 (Starting)</option>
+            <option value="Rs. 23,000" className="bg-[#0b1220]">Rs. 23,000 (Basic)</option>
+            <option value="Rs. 30,000+" className="bg-[#0b1220]">Rs. 30,000+ (Premium)</option>
           </select>
         </div>
 
@@ -113,7 +127,7 @@ export function ContactForm() {
 
         <button
           type="submit"
-          className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all shadow-[0_4px_14px_rgba(59,130,246,0.3)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.4)] hover:-translate-y-0.5"
+          className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all shadow-[0_4px_14px_rgba(59,130,246,0.3)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.4)] hover:-translate-y-0.5 cursor-pointer"
         >
           {status === 'submitting' ? (
             'Sending...'

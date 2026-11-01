@@ -72,18 +72,18 @@ export default function PricingPage() {
             {pricingPlans.map((plan, index) => (
               <div 
                 key={index} 
-                className={`glass-card p-8 rounded-3xl relative border transition-transform duration-300 hover:-translate-y-2 flex flex-col ${
-                  plan.popular ? 'border-primary shadow-[0_0_30px_rgba(79,70,229,0.2)]' : 'border-white/10'
+                className={`glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl relative border transition-transform duration-300 hover:-translate-y-2 flex flex-col ${
+                  plan.popular ? 'border-primary shadow-[0_0_30px_rgba(59,130,246,0.2)]' : 'border-white/10'
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                     Most Popular
                   </div>
                 )}
                 <div className="mb-8">
                   <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                  <p className="text-muted-foreground text-sm h-10">{plan.description}</p>
+                  <p className="text-muted-foreground text-sm min-h-10">{plan.description}</p>
                 </div>
                 <div className="mb-8">
                   <span className="text-4xl font-extrabold">{plan.price}</span>
@@ -93,7 +93,7 @@ export default function PricingPage() {
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-3">
                       {feature.included ? (
-                        <Check className="w-5 h-5 text-green-500 shrink-0" />
+                        <Check className="w-5 h-5 text-accent shrink-0" />
                       ) : (
                         <X className="w-5 h-5 text-muted-foreground/50 shrink-0" />
                       )}
@@ -103,34 +103,23 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-               <Link 
-  href={`/contact?plan=${plan.name.toLowerCase()}`}
-  className={`w-full py-4 rounded-xl font-bold text-center transition-all ${
-    plan.popular 
-      ? 'bg-primary text-white hover:bg-primary/90' 
-      : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
-  }`}
->
-  Get Started
-</Link>
-
-<Link 
+                <Link 
                   href={`/contact?plan=${plan.name.toLowerCase()}`}
-  className={`w-full py-4 rounded-xl font-bold text-center transition-all ${
-    plan.popular 
-      ? 'bg-primary text-white hover:bg-primary/90' 
-      : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
-  }`}
->
-  Get Started
-</Link>
+                  className={`w-full py-4 rounded-xl font-bold text-center transition-all ${
+                    plan.popular 
+                      ? 'bg-primary text-white hover:bg-primary/90 shadow-[0_4px_14px_rgba(59,130,246,0.3)]' 
+                      : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
+                  }`}
+                >
+                  Get Started
+                </Link>
               </div>
             ))}
           </div>
         </div>
         
         {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[100px] -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
       </section>
 
       <section className="py-24 bg-black/20 border-y border-white/5">
@@ -142,9 +131,9 @@ export default function PricingPage() {
           <div className="space-y-6">
             {[
               { q: "How long does it take to build a website?", a: "A standard 5-page business website typically takes 2-3 weeks. More complex eCommerce or SaaS applications can take 6-12 weeks depending on the scope of requirements." },
-              { q: "Do you provide hosting and maintenance?", a: "Yes! I offer ongoing maintenance and premium hosting packages starting at RS. 30,000 to ensure your website remains secure, fast, and up-to-date." },
-              { q: "What is your payment structure?", a: "I typically request a 50% deposit upfront to secure the project slot, with the remaining 50% due upon project completion and before final launch." },
-              { q: "Will I be able to update the website myself?", a: "Absolutely. For the Professional and Premium packages, I integrate user-friendly Content Management Systems (CMS) like Sanity or Contentful so you can easily edit text and images without touching code." }
+              { q: "Do you provide hosting and maintenance?", a: "Yes! We offer ongoing maintenance and premium hosting packages starting at RS. 30,000 to ensure your website remains secure, fast, and up-to-date." },
+              { q: "What is your payment structure?", a: "We typically request a 50% deposit upfront to secure the project slot, with the remaining 50% due upon project completion and before final launch." },
+              { q: "Will we be able to update the website myself?", a: "Absolutely. For the Professional and Premium packages, We integrate user-friendly Content Management Systems (CMS) like Sanity or Contentful so you can easily edit text and images without touching code." }
             ].map((faq, i) => (
               <div key={i} className="glass-card p-6 md:p-8 rounded-2xl">
                 <h4 className="text-xl font-bold mb-3">{faq.q}</h4>
